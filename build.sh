@@ -10,7 +10,7 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 # Configuration — customize for your organization
 # ---------------------------------------------------------------------------
-IDENTIFIER="gov.nasa.cset.psm-monitor"
+IDENTIFIER="com.organization.psm-monitor"
 VERSION="${1:-1.0}"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
