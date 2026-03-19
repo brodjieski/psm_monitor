@@ -2,7 +2,7 @@
 output/
 
 # pkg/root contains files staged by build.sh (copies of tracked source files)
-pkg/root/
+pkg/
 
 # macOS metadata
 .DS_Store

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    <key>Label</key>
+    <string>com.organization.psm-monitor</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>/usr/local/bin/psm_monitor.zsh</string>
+    </array>
+
+    <!-- Run at the top of every hour -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- Also run immediately when the daemon is loaded -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Runs as root (required for psm list) — no UserName key needed for LaunchDaemon -->
+
+    <key>StandardOutPath</key>
+    <string>/var/log/psm_monitor.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/psm_monitor.log</string>
+
+</dict>
+</plist>

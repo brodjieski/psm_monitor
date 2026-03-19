@@ -2,7 +2,7 @@
 
 # Title       : psm_monitor.zsh
 # Description : Collect psm list unlock-attempt and backoff data for all local users
-#               (UID > 500) and store results in a SQLite3 database for historical tracking.
+#               and store results in a SQLite3 database for historical tracking.
 # Author      : Dan Brodjieski
 # Date        : 2026-03-18
 # Version     : 1.1
@@ -130,14 +130,14 @@ SQL
         return 1
     fi
 
-    # Enumerate local users with UID > 500
+    # Enumerate local users
     typeset -a users
     while IFS=' ' read -r uname uid_val; do
         users+=("${uname}:${uid_val}")
-    done < <(dscl . -list /Users UniqueID | awk '$2 > 500 {print $1, $2}' | sort -k2 -n)
+    done < <(dscl . -list /Users UniqueID | awk '{print $1, $2}' | sort -k2 -n)
 
     if [[ ${#users} -eq 0 ]]; then
-        log "ERROR: No users with UID > 500 found — aborting collection." >&2
+        log "ERROR: No users found — aborting collection." >&2
         return 1
     fi
 

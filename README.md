@@ -19,26 +19,25 @@ Each run records its timestamp in the `runs` table, then compares current `psm l
 | `com.organization.psm-monitor.plist` | LaunchDaemon plist — runs hourly as root |
 | `ea_psm_last_user.zsh` | Jamf Pro Extension Attribute |
 | `build.sh` | Builds the installer `.pkg` using `pkgbuild` |
-| `pkg/scripts/preinstall` | Unloads the daemon before installation |
-| `pkg/scripts/postinstall` | Sets permissions and loads the daemon |
+| `preinstall` | Unloads the daemon before installation |
+| `postinstall` | Sets permissions and loads the daemon |
 
 ## Installation
-
-### Build and install
-
-```bash
-./build.sh                                              # produces output/psm_monitor-1.0.pkg
-./build.sh 2.0                                          # specify a version
-sudo installer -pkg output/psm_monitor-1.0.pkg -target /
-```
 
 ### Customize the org identifier
 
 Replace `com.organization` with your own reverse-DNS identifier in:
 
-- `com.organization.psm-monitor.plist` — `<key>Label</key>`
 - `build.sh` — `IDENTIFIER`
-- `pkg/scripts/preinstall` and `postinstall` — `DAEMON_LABEL`
+
+
+### Build and install
+
+```bash
+./build.sh                                              # produces output/psm_monitor-1.0.pkg
+./build.sh 1.0                                          # specify a version
+sudo installer -pkg output/psm_monitor-1.0.pkg -target /
+```
 
 ### Removal
 
