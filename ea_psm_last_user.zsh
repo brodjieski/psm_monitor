@@ -3,7 +3,7 @@
 # Title       : ea_psm_last_user.zsh
 # Description : Jamf Pro Extension Attribute — reports the current psm failed-unlock-attempt
 #               and backoff values for the last logged-in user.
-# Author      : Dan Brodjieski, NASA - CSET
+# Author      : Dan Brodjieski
 # Date        : 2026-03-18
 # Version     : 1.0
 # Output      : <result>FUA[console,other] BO[console,other]</result>

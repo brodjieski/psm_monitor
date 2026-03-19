@@ -3,15 +3,11 @@
 # Title       : psm_monitor.zsh
 # Description : Collect psm list unlock-attempt and backoff data for all local users
 #               (UID > 500) and store results in a SQLite3 database for historical tracking.
-# Author      : Dan Brodjieski, NASA - CSET
+# Author      : Dan Brodjieski
 # Date        : 2026-03-18
 # Version     : 1.1
-# Notes       : Intended to run as root via LaunchDaemon. Requires sqlite3 (bundled with macOS).
-#               Rows are inserted only when values change from the previously recorded state,
-#               so the database only grows when something meaningful happens. is_current = 1
-#               marks the last observed state per user. Each change row records window_start
-#               (the previous run's timestamp) so the change is bracketed in time:
-#                   window_start <= time_of_change <= timestamp
+# Notes       : Intended to run as root via LaunchDaemon. 
+#               is_current = 1 marks the last observed state per user. 
 #               To query current state:
 #                   SELECT * FROM psm_records WHERE is_current = 1;
 

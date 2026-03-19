@@ -1,6 +1,6 @@
 # psm_monitor
 
-Monitors FileVault unlock-attempt and backoff state for local users (UID > 500) by parsing `psm list` and recording changes to a SQLite3 database. Runs hourly via LaunchDaemon.
+Monitors FileVault (SecureToken) unlock-attempt and backoff state for local users (UID > 500) by parsing `psm list` and recording changes to a SQLite3 database. Runs hourly via LaunchDaemon.
 
 ## How it works
 
