@@ -1,0 +1,14 @@
+# Built packages
+output/
+
+# pkg/root contains files staged by build.sh (copies of tracked source files)
+pkg/root/
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# SQLite database (written to /var/db/psm_monitor/ at runtime, should never be here)
+*.db
+*.sqlite
+*.sqlite3
