@@ -146,3 +146,7 @@ In Jamf Pro create the EA with **Data type: String** and **Input type: Script**,
 | PSM Last User Status | is not | Account OK |
 | PSM Last User Status | like | FUA |
 | PSM Last User Status | like | BO |
+
+## Jamf Pro Policy with Script
+
+`attempt_account_unlock.zsh` is a script that can be used as a self-service policy to assist with unlocking the account. It will prompt the user for their FileVault password and then use `diskutil apfs unlockVolume / -verify` to validate the password. If the password is correct, it will reset the `failedLoginCount` to 0 and should put the account in a valid state.
