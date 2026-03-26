@@ -2,6 +2,8 @@
 
 Monitors FileVault (SecureToken) unlock-attempt and backoff state for local users (UID > 500) by parsing `psm list` and recording changes to a SQLite3 database. Runs hourly via LaunchDaemon.
 
+I've included some Jamf Pro items (extension attribute and script) to help wit this issue as well. See below in the Jamf Pro section.
+
 ## How it works
 
 Each run records its timestamp in the `runs` table, then compares current `psm list` values against the last recorded state for each user. A new row is only written when something changes — so every row in `psm_records` represents a meaningful state transition. Two timestamps bracket when the change occurred:
@@ -127,7 +129,11 @@ SELECT timestamp,
 FROM runs ORDER BY id DESC LIMIT 48;
 ```
 
+# Jamf Pro
+
 ## Jamf Pro Extension Attribute
+
+If you do not want to monitor the state over time, there are some Jamf Pro items also included here. These work without the monitor being installed.
 
 `ea_psm_last_user.zsh` reads the last logged-in user from `com.apple.loginwindow.plist`, resolves their UUID via `dscl`, and queries `psm list` live to return a single result string.
 
